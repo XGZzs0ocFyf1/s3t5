@@ -7,35 +7,23 @@ public class Car implements Runnable {
     static {
         CARS_COUNT = 0;
     }
-    private Race race;
-    private int speed;
-    private String name;
+    private final Race race;
+    private final int speed;
+    private final String name;
 
-    private CyclicBarrier startBarrier;
-    private Semaphore roadCounter;
-    private AtomicBoolean isRaceStarted;
-    private AtomicBoolean isWin;
+    private final CyclicBarrier startBarrier;
+    private final Semaphore roadCounter;
+    private final AtomicBoolean isRaceStarted;
+    private final AtomicBoolean isWin;
     private boolean isCarReady = false;
-    private int stagePassed = 0;
     public String getName() {
         return name;
     }
     public int getSpeed() {
         return speed;
     }
-
-
     private int numberOfStages = 0;
     private int passedStages = 0;
-
-
-    public void passStage(){
-        stagePassed++;
-    }
-
-    public int getStagePassed() {
-        return stagePassed;
-    }
 
 
 
@@ -98,24 +86,14 @@ public class Car implements Runnable {
 
     }
 
-    public AtomicBoolean getIsRaceStopped() {
-        return isWin;
+    public void passStage(){
+        passedStages++;
     }
 
-    public void setIsRaceStopped(AtomicBoolean isRaceStopped) {
-        this.isWin = isRaceStopped;
-    }
 
-    public static int getCarsCount() {
-        return CARS_COUNT;
-    }
 
     public AtomicBoolean getIsWin() {
         return isWin;
-    }
-
-    public void setIsWin(AtomicBoolean isWin) {
-        this.isWin = isWin;
     }
 
     public int getPassedStages() {

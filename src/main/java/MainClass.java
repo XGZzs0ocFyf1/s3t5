@@ -8,15 +8,15 @@ public class MainClass {
 
     //здесь предполагаем, что машина после прохождения этапа не сразу едет на следующий и там готовится, затем
     // проходит его по готовности
-    private static Semaphore roadBarrier = new Semaphore(CARS_COUNT);
+    private static final Semaphore roadBarrier = new Semaphore(CARS_COUNT);
 
     //старт одновременный у всех машин и есть еще общий этап подготовки, использую один и тот же барьер 2 раза
-    private static CyclicBarrier startcDL = new CyclicBarrier(CARS_COUNT);
+    private static final CyclicBarrier startcDL = new CyclicBarrier(CARS_COUNT);
 
     //проверяю наличие хоть одного победителя
-    private static AtomicBoolean isWinnerExist = new AtomicBoolean(false);
+    private static final AtomicBoolean isWinnerExist = new AtomicBoolean(false);
 
-    private static AtomicBoolean isRaceStarted = new AtomicBoolean(false);
+    private static final AtomicBoolean isRaceStarted = new AtomicBoolean(false);
 
     //проверяю, что гонка началась, данное значение вычисляется в while(true){} ниже
 

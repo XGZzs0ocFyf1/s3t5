@@ -4,7 +4,7 @@ import java.util.concurrent.CyclicBarrier;
 public class Road extends Stage {
 
 
-    CyclicBarrier cb = new CyclicBarrier(4);
+    private final CyclicBarrier cb = new CyclicBarrier(4);
 
 
     public Road(int length) {

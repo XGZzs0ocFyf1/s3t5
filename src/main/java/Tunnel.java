@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;
 public class Tunnel extends Stage {
 
     //    семафор ограничивает количество машин в тоннеле
-    private Semaphore semaphore;
+    private final Semaphore semaphore;
 
     public Tunnel(int maxCarsInTunnel) {
         this.length = 80;
